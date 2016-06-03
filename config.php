@@ -2,7 +2,7 @@
 	##Variables del sistema
 define('ZONA_HORARIA'	,"Mexico/General");
 //define('PATHAPP', '/var/www/html/ferreweb/');
-define('PATHAPP', '/');
+define('PATHAPP', './');
 define('LIB', 'lib/');
 define('TEMPLATES', 'templates/');
 define('TEMPLATES_C', 'templates_c/');

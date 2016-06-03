@@ -1,0 +1,44 @@
+{include file='header.html'}
+<ol class="breadcrumb">
+  <li ><a href="producto.php">Producto</a></li>
+  <li ><a href="ver_categoria.php?categoria={$categoria}">{$nombre}</a></li>
+  <li class="active">{$detalle[0][1]} ({$detalle[0][5]})</li>
+</ol>
+<h1 class="text-center">{$detalle[0][1]} ({$detalle[0][5]})</h1>
+<table>
+	<tr>
+		<th>Descripcion</th>
+		<th></th>
+	</tr>
+	<tr>
+		<td>{$detalle[0][2]}</td>
+		<td>
+			<img src="images/{$detalle[0][4]}"><br>
+			<p>
+				Precio: {$detalle[0][3]} MNX <br>
+				{$detalle[0][6]}USD
+			</p>
+		</td>
+	</tr>
+</table>
+  <form class="form-inline" role="form" method="post" action="agregar_carrito.php">
+  <div class="form-group">
+    <label >Cantidad:</label>
+    <input type="number" min="1" class="form-control" name="cantidad">
+    <input type="hidden" name="producto" value="{$detalle[0][0]}">
+  </div>
+  <button type="submit" class="btn btn-default">Agregar al carrito</button>
+</form>
+<h3 class="text-center">Comentarios</h3>
+{if !empty ($comentarios)}
+	{foreach from=$comentarios item=$valor key=llave}
+		<p>
+			Nombre: {$valor[2]}<br>
+			
+			<br>
+			Comentario: {$valor[1]}
+
+		</p>
+	{/foreach}
+{/if}
+{include file='footer.html'}

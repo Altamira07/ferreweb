@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions name="ProductosServicio" targetNamespace="urn:productos" xmlns:tns="urn:Productos" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+ 
+  <xsd:element name="productostipo">
+    <xsd:complexType>
+      <xsd:sequence>
+            <xsd:element name="id" type="xsd:integer"/>
+            <xsd:element name="nombre" type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+
+  <message name="ProductoPeticion">
+    <part name="buscar" type="xsd:string"/>
+  </message>
+ 
+  <message name="ProductoRespuesta">
+    <part name="respuesta" type="xsd:productotipo"/>
+  </message>
+ 
+  <portType name="ProductoPort">
+    <operation name="obtenerproductos">
+      <input message="tns:ProductoPeticion"/>
+      <output message="tns:ProductoRespuesta"/>
+    </operation>      
+  </portType>
+ 
+  <binding name="ProductoBinding" type="tns:ProductoPort">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="obtenerproductos">
+        <soap:operation soapAction="urn:Producto#obtenerproductos"/>
+        <input>
+          <soap:body use="encoded" namespace="urn:Productos" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        </input>
+        <output>
+          <soap:body use="encoded" namespace="urn:Producto" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+        </output>
+    </operation>
+  </binding>
+ 
+  <service name="ProductoServicio">
+    <port name="ProductoPort" binding="tns:ProductosBinding">
+      <soap:address location="http://192.168.1.71/ferreweb/wsdl/productos_server.php"/>
+    </port>
+  </service>
+  
+</definitions>

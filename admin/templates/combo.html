@@ -1,0 +1,15 @@
+<label>{$name}</label>
+<select class="form-control" name={$name}>
+  	{foreach from=$campos item=$valor key=nombre}
+  		{if isset($seleccion)}
+  			{if $valor[0] == $seleccion}
+				<option value={$valor[0]} selected="selected">{$valor[1]}</option>
+  			
+  			{else}
+  				<option value={$valor[0]}>{$valor[1]}</option>
+  			{/if}
+  		{else}
+  			<option value={$valor[0]}>{$valor[1]}</option>
+  		{/if}
+	{/foreach}
+</select>

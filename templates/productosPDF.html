@@ -1,0 +1,18 @@
+
+<page>
+<h2>Lista de productos Productos</h2>
+<table>
+	<tr>
+		<th>Identificador</th>
+		<th>Nombre</th>
+		<th>Precio (MXN)</th>
+	</tr>
+	{foreach from=$datos item=$valor key=nombre}
+	<tr>
+		<td>{$valor[0]}</td>
+		<td>{$valor[1]}</td>
+		<td>{$valor[2]}</td>
+	</tr>
+	{/foreach}
+</table>
+</page>

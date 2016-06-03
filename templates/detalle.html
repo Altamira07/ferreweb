@@ -1,0 +1,37 @@
+{include file='header.html'}
+<ol class="breadcrumb">
+  <li ><a href="producto.php">Producto</a></li>
+  <li ><a href="ver_categoria.php?categoria={$categoria}">{$nombre}</a></li>
+  <li class="active">{$detalle[0][1]} ({$detalle[0][5]})</li>
+</ol>
+<h1 class="text-center">{$detalle[0][1]} ({$detalle[0][5]})</h1>
+<table>
+	<tr>
+		<th>Descripcion</th>
+		<th></th>
+	</tr>
+	<tr>
+		<td>{$detalle[0][2]}</td>
+		<td>
+			<img src="images/{$detalle[0][4]}"><br>
+			<p>
+				Precio: {$detalle[0][3]}
+			</p>
+		</td>
+	</tr>
+</table>
+<h3 class="text-center">Comentarios</h3>
+{if !empty ($comentarios)}
+	{foreach from=$comentarios item=$valor key=llave}
+		<p>
+			Nombre: {$valor[2]}<br>
+			Calificacion: {for $foo 1 to $valor[0]} 
+					<img src="images/star.png">
+				{/for }
+			<br>
+			Comentario: {$valor[1]}
+
+		</p>
+	{/foreach}
+{/if}
+{include file='footer.html'}

@@ -1,0 +1,47 @@
+
+  <script src="js/jquery.js"></script>
+  <script src="js/jquery.validate.min.js"></script><script>
+        $().ready(function() {
+            // validate signup form on keyup and submit
+            $("#formulario_ingreso").validate({
+                rules: {
+                    passward: {
+                        required: true,
+                        minlength: 8
+                    },
+                    email: {
+                        required: true,
+                        email: true
+                    }
+                },
+                messages: {
+                    passward: {
+                        required: "Ingrese un Password Por favor",
+                        minlength: "Mínimo 8 caracteres para el password!!!!!! >:("
+                    },
+                    email: "Ingrese un correo válido"
+                }
+            });
+
+            // propose username by combining first- and lastname
+            $("#username").focus(function() {
+                var firstname = $("#firstname").val();
+                var lastname = $("#lastname").val();
+                if (firstname && lastname && !this.value) {
+                    this.value = firstname + "." + lastname;
+                }
+            });
+        });
+</script>
+<div>
+   <form  id="formulario_ingreso" method="post">
+
+     <h3>Hola usuario</h3>
+     <p><input type="text"  id="email" name="email" /></p>
+     <p><input type="password"  name="passward" id="passward" /></p>
+     <p><a href="#">Recuperar contraseña</a></p>
+     <p><a href="#">Nueva cuenta</a></p>
+     <button type="submit">Iniciar Sesión</button>
+
+   </form>
+ </div>

@@ -1,0 +1,17 @@
+{include file='header.html'}
+<div class="centrar" >
+	<form action="cambiar_pass.php" method="post">
+		{if isset ($mensaje)}
+			{$mensaje}
+		{/if}
+		<p>Contraseña Actual</p>
+		<p><input type="password" class="form-control" name="passActual" id="pass" placeholder="Password" required=""/></p>
+
+		<p>Introduce la contraseña Nueva</p>
+		<p><input type="password" class="form-control" name="passNueva" id="pass" placeholder="Password" required=""/></p>
+		<p>Repite la contraseña Nueva</p>
+		<p><input type="password" class="form-control" name="passR" id="pass" placeholder="Password" required=""/></p>
+		<button class="btn btn-lg btn-primary btn-block" type="submit">Cambiar</button>
+	</form>
+</div>
+{include file='footer.html'}

@@ -1,0 +1,31 @@
+{include file='header.html'}
+<h2>Privilegios de {$nombre_rol}</h2>
+<div class ="centrar">
+	<form role="form" action="privilegios.php" method="POST">
+		<div class="form-group">
+			<p class="text-center">
+				<label>Nombre del privilegio</label>
+				<input type="text" name="privilegio" class="form-control" required>
+				<input type="hidden" name="id_rol" value="{$id_rol}">
+				<button type="submit" class="btn">Agregar</button>
+			</p>
+		</div>
+	</form>
+
+	<h3 class="text-center">{$nombre_rol}</h3>
+	<table class="table table-hover">
+		<tr>
+			<th>Privilegio</th>
+			<th>Eliminar</th>
+		</tr>
+		{foreach from=$datos item=$valor key=llave}
+		<tr>
+			<td>{$valor[1]}</td>
+			<td><a href="privilegios.php?id_rol={$id_rol}&eliminar={$valor[0]}"><img src="../images/eliminar_rol.png"></a></td>
+		</tr>
+		{/foreach}
+	</table>
+
+</div>
+
+{include file='footer.html'}

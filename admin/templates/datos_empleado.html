@@ -1,0 +1,35 @@
+{include file='header.html'}
+<div class="centrar">
+	{if isset ($mensaje)}
+		{$mensaje}
+	{/if}
+	<form action="datos_empleado.php" method="post">
+		<div class="form-group">
+			<p>
+				<label>Nombre</label><br>
+				<input type="text" class="form-control" name="nombre" value="{$datos[0][0]}" required="" >
+			</p>
+			<input type="hidden" name="guardar" value="true">
+			<p>
+				<label>Apellido paterno</label><br>
+				<input type="text" class="form-control" name="apaterno" value="{$datos[0][1]}" required="" >
+			</p>
+			<p>
+				<label>Apellido materno</label><br>
+				<input type="text" class="form-control" name="amaterno" value="{$datos[0][2]}" required="" >
+			</p>
+			<p>
+				<label>rfc</label><br>
+				<input type="text" class="form-control" name="rfc" value="{$datos[0][3]}" required="" >
+			</p>
+			<p>
+				<label>nacimiento</label><br>
+				<input type="text" class="form-control" name="nacimiento" value="{$datos[0][4]}" required="" >
+			</p>
+			<br>
+			<button class="btn" type="submit">Guardar</button>
+		</div>
+	</form>
+	
+</div>
+{include file='footer.html'}

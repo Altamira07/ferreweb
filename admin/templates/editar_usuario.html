@@ -1,0 +1,20 @@
+{include file='header.html'}
+<form role="form" action="usuarios.php" method="post" >
+	<div class="form-group">
+		<p>
+			<p><h4>Correo: </h4>{$correo}</p>
+			<input type="hidden" class="form-control" name="email" required="" value="{$correo}"   >
+		</p>
+		<p>
+			<label>Contraseña</label><br>
+			<input type="password" class="form-control" name="pass" required="" >
+		</p>
+		<p>
+			<a href="agregar_rol.php?correo={$correo}">Agregar rol</a>
+		</p>
+		 <input type="hidden" name="editar" value="true">
+		<button class="btn btn-lg btn-primary btn-block" type="submit">Gurdar</button>
+	</div>
+	
+</form>
+{include file='footer.html'}

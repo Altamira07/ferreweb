@@ -1,0 +1,12 @@
+{include file='header.html'}
+ <form class="form-signin" action="crear_cuenta.php" method="post" accept-charset="utf-8" >
+     <h4 class="form-signin-heading">Hola Nuevo usuario</h4>
+     <p><label>Correo Electronico</label><input type="text" class="form-control" name="datos[email]" placeholder="Email Address" required="" autofocus="" /></p>
+     <p><label>Contraseña</label>
+     <input type="password" class="form-control" name="datos[pass]" id="pass" placeholder="Password" required=""/></p>
+     <p><label>Repite la contraseña</label>
+     <input type="password" class="form-control" name="datos[passR]" id="passR" placeholder="Password" required=""/></p>
+     <button class="btn btn-lg btn-primary btn-block" type="submit">Iniciar Sesión</button>
+
+   </form>
+{include file='footer.html'}

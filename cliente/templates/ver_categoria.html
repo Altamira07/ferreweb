@@ -1,0 +1,30 @@
+{include file="header.html"}
+<ol class="breadcrumb">
+  <li ><a href="producto.php">Producto</a></li>
+  <li class="active">{$nombre}</li>
+</ol>
+<h1 class="text-center">{$nombre}</h1>
+<h4 class="text-center">fecha actualizada del dolar : {$fecha}</h4>
+<table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Marca</th>
+        <th>Nombre</th>
+        <th>MXN</th>
+        <th>USD</th>
+        <th>Detalles</th>
+      </tr>
+    </thead>
+    <tbody>
+     	{foreach from=$datos item=valor key=llave}
+     		<tr>
+     			<th>{$valor[2]}</th>
+     			<th>{$valor[0]}</th>
+     			<th>${$valor[3]}</th>
+     			<th>${$valor[6]}</th>
+     			<th><a href="detalle.php?producto={$valor[1]}&categoria={$valor[5]}"><img src="../images/ver.png"></a></th>
+     		</tr>	
+     	{/foreach}
+    </tbody>
+  </table>
+{include file="footer.html"}

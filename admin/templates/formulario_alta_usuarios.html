@@ -1,0 +1,49 @@
+{include file='header.html'}
+<div class="centrar">
+	<form role="form" action="usuarios.php" method="post" >
+		<div class="form-group">
+			<p>
+				<label>Correo</label><br>
+				<input type="email" class="form-control" name="email" required="" >
+			</p>
+			<p>
+				<label>Contraseña</label><br>
+				<input type="password" class="form-control" name="pass" required="" >
+			</p>
+			<button class="btn btn-lg btn-primary btn-block" type="submit">Agregar</button>
+		</div>
+	</form>
+	<div id="ver_usuarios">
+		{if isset($datos)}
+		<table class="table table-hover">
+			<tr>
+				<th>Correo</th>
+				<th>Editar</th>
+				<th>Roles</th>
+				<th>Eliminar</th>
+			</tr>
+			{foreach from=$datos item=$valor key=nombre}
+			<tr>
+				<td>{$valor[0]}</td>
+				<td><a href="editar_usuario.php?correo={$valor[0]}"><img src="../images/editar.png"></a></td>
+				<td><a href="agregar_rol.php?correo={$valor[0]}"><img src="../images/agregar.png"></a></td>
+				<td><a href="eliminar_usuario.php?correo={$valor[0]}"><img src="../images/eliminar.png"></a></td>
+			</tr>
+			{/foreach}
+		</table>
+		{/if}
+	</div>
+	<u class="pagination">
+		{for $foo=0 to $cantidad}
+			{if ($foo+1) eq $pagina}
+
+				<li class="active"><a href="usuarios.php?pagina={$foo+1}">{$foo+1}</a></li>
+			{else}
+				<li><a href="usuarios.php?pagina={$foo+1}">{$foo+1}</a></li>
+			{/if}
+			
+		{/for}
+	</u>
+
+</div>
+{include file='footer.html'}

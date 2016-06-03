@@ -1,0 +1,11 @@
+{include file='header.html'}
+<h1>Producto</h1>
+<ol class="breadcrumb">
+  <li class="active" >Producto</li>
+</ol>
+{foreach from=$categoria item=$valor key=llave}
+	<div>
+		<a href="ver_categoria.php?categoria={$valor[0]}">{$valor[1]}</a>
+	</div>
+{/foreach}
+{include file='footer.html'}

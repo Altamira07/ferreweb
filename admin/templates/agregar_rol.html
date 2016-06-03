@@ -1,0 +1,20 @@
+{include file='header.html'}
+<div class="centrar">
+	<h4 class="text-center"> Privilegios de: <br>{$correo}</h4>
+	<p class="text-center">
+		{if isset ($datos)}
+			<ul class="list-group" > 
+			{foreach from=$datos item=$valor key=llave}
+				
+				<p ><li class="text-center">{$valor[1]}</li></p>
+			{/foreach}
+			</ul>
+		{/if}
+	</p>
+	<form class="text-center">
+		{$combo}<br>
+		<input type="hidden" class="form-control" name="correo" required="" value="{$correo}"   >
+		<input type="submit" class="btn btn-primary" value="Agregar">
+	</form>
+</div>
+{include file='footer.html'}

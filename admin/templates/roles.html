@@ -1,0 +1,38 @@
+{include file='header.html'}
+<h2>Roles</h2>
+<div id="centrar">
+	<form role="form" action="roles.php" method="GET">
+		<div class="form-group">
+			<p class="text-center">
+				<label>Nombre del rol</label>
+				<input type="text" name="rol" class="form-control" required>
+				<button type="submit" class="btn">Agregar</button>
+			</p>
+		</div>
+	</form>
+	<table class="table table-hover">
+		<tr>
+			<th>Rol</th>
+			<th>Editar</th>
+			<th>Eliminar</th>
+		</tr>
+		{foreach from=$datos item=$valor key=$llave}
+			<tr>
+				<td>{$valor[1]}</td>
+				<td><a href="privilegios.php?id_rol={$valor[0]}"><img src="../images/editar_rol.png"></a></td>
+				<td><a href="roles.php?eliminar={$valor[0]}"><img src="../images/eliminar_rol.png"></a></td>
+			</tr>
+		{/foreach}
+	</table>
+	<u class="pagination">
+	{for $foo=0 to $cantidad}
+		{if ($foo+1) eq $pagina}
+			<li class="active"><a href="roles.php?pagina={$foo+1}">{$foo+1}</a></li>
+		{else}
+			<li><a href="roles.php?pagina={$foo+1}">{$foo+1}</a></li>
+		{/if}
+		
+	{/for}
+</u>
+</div>
+{include file='footer.html'}

@@ -1,0 +1,14 @@
+{include file='header.html'}
+<div class="wrapper" >
+	<form action="reestablecido.php" method="post">
+		{if isset ($mensaje)}
+			{$mensaje}
+		{/if}
+		<p>Introduce la contraseña</p>
+		<p><input type="password" class="form-control" name="pass" id="pass" placeholder="Password" required=""/></p>
+		<p>Repite la contraseña</p>
+		<p><input type="password" class="form-control" name="passR" id="pass" placeholder="Password" required=""/></p>
+		<button class="btn btn-lg btn-primary btn-block" type="submit">Reestablecer</button>
+	</form>
+</div>
+{include file='footer.html'}

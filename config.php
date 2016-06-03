@@ -1,7 +1,7 @@
 <?php
 	##Variables del sistema
 define('ZONA_HORARIA'	,"Mexico/General");
-define('PATHAPP', '/var/www/html/ferreweb/');
+define('PATHAPP', dirname(__FILE__));
 define('LIB', 'lib/');
 define('TEMPLATES', 'templates/');
 define('TEMPLATES_C', 'templates_c/');
@@ -20,4 +20,7 @@ define ('MAIL_USERNAME','luisaltamira07@gmail.com');
 define ('MAIL_PASS','');
 define ('MAIL_SMTPDEBUG',2);
 define ('MAIL_PORT',465);
+
+
+
 ?>
